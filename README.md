@@ -137,5 +137,4 @@ This project follows a spec-driven development approach with:
 
 ## License
 
-MIT"# Song-Management-System" 
-"# Song-Management-System" 
+MIT
