@@ -1,0 +1,24 @@
+  console.warn
+    Starting the MongoMemoryServer Instance failed, enable debug log for more information. Error:
+     StdoutInstanceError: Mongod internal error (fassert() failure\n\n"})
+        at MongoInstance.checkErrorInLine (C:\Users\User_2\Desktop\chaos_projects\mule\backend\node_modules\mongodb-memory-server-core\src\util\MongoInstance.ts:728:9)
+        at MongoInstance.stdoutHandler (C:\Users\User_2\Desktop\chaos_projects\mule\backend\node_modules\mongodb-memory-server-core\src\util\MongoInstance.ts:623:10)
+        at Socket.emit (node:events:508:28)
+        at addChunk (node:internal/streams/readable:559:12)
+        at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+        at Socket.Readable.push (node:internal/streams/readable:390:5)
+        at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)
+
+    [0m [90m 17 |[39m   beforeAll([36masync[39m () [33m=>[39m {
+     [90m 18 |[39m     [90m// Start in-memory MongoDB instance[39m
+    [31m[1m>[22m[39m[90m 19 |[39m     mongoServer [33m=[39m [36mawait[39m [33mMongoMemoryServer[39m[33m.[39mcreate()[33m;[39m
+     [90m    |[39m                   [31m[1m^[22m[39m
+     [90m 20 |[39m     [36mconst[39m mongoUri [33m=[39m mongoServer[33m.[39mgetUri()[33m;[39m
+     [90m 21 |[39m     
+     [90m 22 |[39m     [90m// Connect to the in-memory database[39m[0m
+
+      at node_modules/mongodb-memory-server-core/src/MongoMemoryServer.ts:359:17
+      at MongoMemoryServer.start (node_modules/mongodb-memory-server-core/src/MongoMemoryServer.ts:350:5)
+      at MongoMemoryServer.create (node_modules/mongodb-memory-server-core/src/MongoMemoryServer.ts:317:5)
+      at Object.<anonymous> (src/controllers/__tests__/songController.property.test.js:19:19)
+

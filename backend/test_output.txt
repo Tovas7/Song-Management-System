@@ -1,0 +1,68 @@
+  console.warn
+    Starting the MongoMemoryServer Instance failed, enable debug log for more information. Error:
+     StdoutInstanceError: Mongod internal error (fassert() failure\n\n"})
+        at MongoInstance.checkErrorInLine (C:\Users\User_2\Desktop\chaos_projects\mule\backend\node_modules\mongodb-memory-server-core\src\util\MongoInstance.ts:728:9)
+        at MongoInstance.stdoutHandler (C:\Users\User_2\Desktop\chaos_projects\mule\backend\node_modules\mongodb-memory-server-core\src\util\MongoInstance.ts:623:10)
+        at Socket.emit (node:events:508:28)
+        at addChunk (node:internal/streams/readable:559:12)
+        at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+        at Socket.Readable.push (node:internal/streams/readable:390:5)
+        at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)
+
+    [0m [90m 19 |[39m
+     [90m 20 |[39m   beforeAll([36masync[39m () [33m=>[39m {
+    [31m[1m>[22m[39m[90m 21 |[39m     mongoServer [33m=[39m [36mawait[39m [33mMongoMemoryServer[39m[33m.[39mcreate()[33m;[39m
+     [90m    |[39m                   [31m[1m^[22m[39m
+     [90m 22 |[39m     [36mconst[39m mongoUri [33m=[39m mongoServer[33m.[39mgetUri()[33m;[39m
+     [90m 23 |[39m     [36mawait[39m mongoose[33m.[39mconnect(mongoUri)[33m;[39m
+     [90m 24 |[39m   })[33m;[39m[0m
+
+      at node_modules/mongodb-memory-server-core/src/MongoMemoryServer.ts:359:17
+      at MongoMemoryServer.start (node_modules/mongodb-memory-server-core/src/MongoMemoryServer.ts:350:5)
+      at MongoMemoryServer.create (node_modules/mongodb-memory-server-core/src/MongoMemoryServer.ts:317:5)
+      at Object.<anonymous> (src/controllers/__tests__/statisticsController.property.test.js:21:19)
+
+FAIL src/controllers/__tests__/statisticsController.property.test.js (12.94 s)
+  ● Statistics Controller Property-Based Tests › Property 11: Statistics Accuracy › should accurately calculate statistics for any set of songs
+
+    Mongod internal error (fassert() failure\n\n"})
+
+      at MongoInstance.checkErrorInLine (node_modules/mongodb-memory-server-core/src/util/MongoInstance.ts:728:9)
+      at MongoInstance.stdoutHandler (node_modules/mongodb-memory-server-core/src/util/MongoInstance.ts:623:10)
+
+  ● Statistics Controller Property-Based Tests › Property 12: Statistics Real-time Updates › should update statistics immediately after adding a song
+
+    Mongod internal error (fassert() failure\n\n"})
+
+      at MongoInstance.checkErrorInLine (node_modules/mongodb-memory-server-core/src/util/MongoInstance.ts:728:9)
+      at MongoInstance.stdoutHandler (node_modules/mongodb-memory-server-core/src/util/MongoInstance.ts:623:10)
+
+  ● Statistics Controller Property-Based Tests › Property 12: Statistics Real-time Updates › should update statistics immediately after deleting a song
+
+    Mongod internal error (fassert() failure\n\n"})
+
+      at MongoInstance.checkErrorInLine (node_modules/mongodb-memory-server-core/src/util/MongoInstance.ts:728:9)
+      at MongoInstance.stdoutHandler (node_modules/mongodb-memory-server-core/src/util/MongoInstance.ts:623:10)
+
+
+  ● Test suite failed to run
+
+    thrown: "Exceeded timeout of 10000 ms for a hook.
+    Add a timeout value to this test to increase the timeout, if this is a long-running test. See https://jestjs.io/docs/api#testname-fn-timeout."
+
+    [0m [90m 24 |[39m   })[33m;[39m
+     [90m 25 |[39m
+    [31m[1m>[22m[39m[90m 26 |[39m   afterAll([36masync[39m () [33m=>[39m {
+     [90m    |[39m   [31m[1m^[22m[39m
+     [90m 27 |[39m     [36mawait[39m mongoose[33m.[39mconnection[33m.[39mdropDatabase()[33m;[39m
+     [90m 28 |[39m     [36mawait[39m mongoose[33m.[39mconnection[33m.[39mclose()[33m;[39m
+     [90m 29 |[39m     [36mawait[39m mongoServer[33m.[39mstop()[33m;[39m[0m
+
+      at afterAll (src/controllers/__tests__/statisticsController.property.test.js:26:3)
+      at Object.describe (src/controllers/__tests__/statisticsController.property.test.js:17:1)
+
+Test Suites: 1 failed, 1 total
+Tests:       3 failed, 3 total
+Snapshots:   0 total
+Time:        13.054 s, estimated 15 s
+Ran all test suites matching /src\\controllers\\__tests__\\statisticsController.property.test.js/i.
